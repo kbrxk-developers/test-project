@@ -3,6 +3,11 @@ name: build-node
 on:
   workflow_call:
     inputs:
+      language:
+        description: 'Programming language to use (node, dotnet, etc.)'
+        type: string
+        required: true
+        default: 'node'
       node_version:
         description: 'Node.js version to use'
         type: string
@@ -24,6 +29,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    if: ${{ inputs.language == 'node' }}
     needs: validate
     steps:
       - name: Build
