@@ -27,7 +27,7 @@ jobs:
       - name: Validate .NET version
         run: echo "Validating .NET version ${{ inputs.node_version }} and framework ${{ inputs.node_framework }}"
 
-  build:
+  build-node:
     runs-on: ubuntu-latest
     if: ${{ inputs.language == 'node' }}
     needs: validate
