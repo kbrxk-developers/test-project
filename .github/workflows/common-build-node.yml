@@ -29,7 +29,6 @@ jobs:
 
   build-node:
     runs-on: ubuntu-latest
-    if: ${{ inputs.language == 'node' }}
     needs: validate
     steps:
       - name: Build

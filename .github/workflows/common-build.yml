@@ -31,6 +31,7 @@ on:
 jobs:
   build-dotnet:
     uses: './.github/workflows/common-build-dotnet.yml'
+    if: ${{ inputs.language == 'dotnet' }}
     with:
       language: 'dotnet'
       net_version: '6.0'
@@ -38,6 +39,7 @@ jobs:
 
   build-node:
     uses: './.github/workflows/common-build-node.yml'
+    if: ${{ inputs.language == 'node' }}
     with:
       language: 'node'
       node_version: '16.x'
