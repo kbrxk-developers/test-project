@@ -6,4 +6,8 @@ on:
 
 jobs:
   hello_world_job:
-    uses: kbrxk-production/test-project@v1
+    runs-on: ubuntu-latest
+    name: Hello World Job
+    steps:
+      - id: start
+        uses: kbrxk-production/test-project@v1
