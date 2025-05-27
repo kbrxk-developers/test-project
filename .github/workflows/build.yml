@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    uses: 'jenseng/dynamic-uses@v1'
+    uses: jenseng/dynamic-uses@v1
     with:
       uses: './.github/workflows/common-build.yml'
       with: '{ "language": "dotnet", "net_version": "6.0", "net_framework": "console" }'
