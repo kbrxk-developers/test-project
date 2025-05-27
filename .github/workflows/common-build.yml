@@ -1,0 +1,46 @@
+name: build
+
+on:
+  workflow_call:
+    inputs:
+      language:
+        description: 'Lenguaje de programación a utilizar (node, dotnet, etc.)'
+        type: string
+        required: false
+
+      # .NET specific inputs
+      net_version:
+        description: 'Versión de .NET a utilizar'
+        type: string
+        required: false
+      net_framework:
+        type: string
+        description: 'Framework de .NET a utilizar (aspnet, console, etc.)'
+        required: false
+
+      # Node.js specific inputs
+      node_version:
+        description: 'Node.js version to use'
+        type: string
+        required: false
+      node_framework:
+        description: 'Node.js framework to use (angular, react, vue, etc.)'
+        type: string
+        required: false
+
+jobs:
+  build-dotnet:
+    uses: './.github/workflows/common-build-dotnet.yml'
+    if: ${{ inputs.language == 'dotnet' }}
+    with:
+      language: 'dotnet'
+      net_version: '${{ inputs.net_version }}'
+      net_framework: '${{ inputs.net_framework }}'
+
+  build-node:
+    uses: './.github/workflows/common-build-node.yml'
+    if: ${{ inputs.language == 'node' }}
+    with:
+      language: 'node'
+      node_version: '${{ inputs.node_version }}'
+      node_framework: '${{ inputs.node_framework }}'
