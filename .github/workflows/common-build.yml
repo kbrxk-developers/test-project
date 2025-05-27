@@ -44,17 +44,3 @@ jobs:
       language: 'node'
       node_version: '${{ inputs.node_version }}'
       node_framework: '${{ inputs.node_framework }}'
-
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Release
-        run: echo "Creating a release..."
-
-  deploy:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
-        run: echo "Desplegando..."
